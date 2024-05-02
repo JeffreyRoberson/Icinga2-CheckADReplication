@@ -8,7 +8,7 @@ function Invoke-CheckADObjectAge ()
     [ValidateSet(0,1,2)]
     $Verbosity = 0
   );
-  $TestUser = Get-ADObject -Identity "CN=Nagios Test,CN=Users,DC=hutchgov,DC=com" -Properties Description;
+  $TestUser = Get-ADObject -Identity "CN=TestObject,CN=Users,DC=contoso,DC=com" -Properties Description;
   $Stamp = $TestUser.Description;
   $Age = [DateTimeOffset]::Now.ToUnixTimeSeconds() - $Stamp;
 
